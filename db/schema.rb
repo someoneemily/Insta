@@ -11,15 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610134344) do
+ActiveRecord::Schema.define(version: 20160610193200) do
 
   create_table "instagrampics", force: :cascade do |t|
     t.string   "photo_url"
     t.string   "description"
-    t.integer "followers"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-
   end
 
   create_table "photo_uploads", force: :cascade do |t|
@@ -34,6 +32,16 @@ ActiveRecord::Schema.define(version: 20160610134344) do
     t.string   "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "userprofiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "followers"
+    t.string   "following"
+    t.string   "profilepic"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

@@ -57,7 +57,8 @@
           </script>
           <p> #Cutedoggypics Lover of Dogs, and dogs, mainly dogs
           </p>
-         <%=@instagrampics.size%> posts           
+         <%=@instagrampics.size%> posts 
+
           <%=va%> followers                 1000 following 
          
         </td>
@@ -72,10 +73,7 @@
   </table>
  
 
- <style type="text/css">
-      td: {padding-right : 20px; padding-left: 20px; padding-bottom: 20px; padding-top: 20px;}
 
-    </style>
  <div class="container">
     
   <table>
@@ -85,15 +83,18 @@
       
        
         <%counter=counter+=1%>
-        
+       
        <td class"col-md-4">
+        <div class="column">
         <a href="<%= picture.photo_url%>">
-        <img src="<%= picture.photo_url%>" class="img-responsive" height ="350px" max-height = "350px" width="350px" max-width="350px" style="padding-left: 20px"> </a> 
+        <img src="<%= picture.photo_url%>" class="img-responsive" height ="350px" width="350px" > </a> 
         <!-- 
         <%= link_to 'Show', picture %> -->
         <%= link_to 'Edit', edit_instagrampic_path(picture) %>
-       <%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    
+       <%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div> 
+      </td>
+      
        
         <% if counter==3%>
           

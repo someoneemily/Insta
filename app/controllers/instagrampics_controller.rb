@@ -5,6 +5,7 @@ class InstagrampicsController < ApplicationController
   # GET /instagrampics.json
   def index
     @instagrampics = Instagrampic.all
+    @instagrampic = Instagrampic.new
   end
 
   # GET /instagrampics/1
@@ -15,6 +16,7 @@ class InstagrampicsController < ApplicationController
   # GET /instagrampics/new
   def new
     @instagrampic = Instagrampic.new
+    @instagrampics = Instagrampic.all
   end
   def newpage
     @instagrampic = Instagrampic.newpage

@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<div class="profile">
+<%if @userprofiles.size>0%>
+
+   <tbody>
+    <% @userprofiles.each do |userprofile| %>
+      <tr>
+           <td><img src="<%= userprofile.profilepic %>"class ="img-circle" height="200" width="200"></td>
+        <td><h2><%= userprofile.name %></h2></td>
+        <td><%= userprofile.description %></td>
+        <td><%= userprofile.followers %></td>
+        <td><%= userprofile.following %></td>
+     
+        <td><%= link_to 'Show', userprofile %></td>
+        <td><%= link_to 'Edit', edit_userprofile_path(userprofile) %></td>
+        <td><%= link_to 'Destroy', userprofile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+<%else%>
+<h3><label class="text-Danger">No user currently signed in</label></h3>
+<%= link_to 'New Userprofile', new_userprofile_path %>
+<%end%>
+</div>
+<div class="profile">
+<table>
+  
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Followers</th>
+      <th>Following</th>
+      <th>Profilepic</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+ 
+
+</table>
+</div>
+<br>
+
+<%= link_to 'New Userprofile', new_userprofile_path %>

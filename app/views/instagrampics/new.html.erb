@@ -49,9 +49,9 @@
           <button type="button" class="btn btn-default">Edit Profile</button>
           <p> #Cutedoggypics Lover of Dogs, and dogs, mainly dogs
           </p>
-          <p> 3 posts              1 follower                 0 following 
-          </p>
-        </td>
+       <%=@instagrampics.size%>posts
+                 1 follower                 0 following 
+                  </td>
         
         <td class="col-md-3">
           
@@ -66,9 +66,9 @@
 
 </body>
 </html>
+<div class ="container-newpic">
 
-<%= link_to 'New Instagrampic', new_instagrampic_path %>
 <%= render 'form' %>
-
-
 <%= link_to 'Back', instagrampics_path %>
+
+</div>

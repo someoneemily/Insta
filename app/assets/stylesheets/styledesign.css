@@ -1,0 +1,28 @@
+.column{
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+
+img-responsive{
+	object-fit: cover;
+	width: 350px;
+	height: 350px;
+}
+img{
+	object-fit: cover;
+}
+.container-newpic{
+	padding-left: 200px;
+	padding-top: 100px;
+	padding-bottom: 50px;
+	
+}
+.profile{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+
+}
