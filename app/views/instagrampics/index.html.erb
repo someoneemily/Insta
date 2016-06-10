@@ -1,0 +1,112 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <title>InstagramME</title>
+</head>
+<body style="background-color:#F7F7F7">
+  <table class="table table-hover">
+    
+    <tr class = "row"style="background-color:#FFFFFF">
+      <td class="col-md-1">
+      </td>
+      <td class="col-md-1">
+        <img src="http://www.clker.com/cliparts/S/B/l/d/h/t/frameless-camera.svg" height="50px" width="50px" class="pull-right">
+      </td>
+      <td class="col-md-3">  <p class="text-lg-left"><h3>InstagramME</h3></p> 
+      </td>
+      <td class="col-md-4">
+        <div class="col-md-6">
+          <div class "form-group">
+            <label for="SearchBox"></label>
+            <input type = "Search" class = "form-control" id = "Searchbox" placeholder= "Search">
+          </div>
+        </div>
+      </td>
+      
+      <td class="col-md-3">
+        <button type="button" class="btn btn-primary">Get the web</button>
+        
+         <button class="btn btn-default active" onclick ="window.open('instagrampics/new')" >
+          <img src="http://www.educationalappstore.com/images/upload/9340-logo-mzl.gdamjwas.png" width="40">
+        </button>
+       <!--  <form action="localhost:3000/instagrampics/new">
+          <input type = "LogIN" value"LogIN">
+        </form> -->
+      </td>
+      
+    </tr>
+    <tr class = "row" >
+      
+        <td class="col-md-1">
+        </td>
+        <td class="col-md-1">
+        </td>
+        <td class="col-md-3"><img src="http://pre07.deviantart.net/1ef3/th/pre/f/2012/240/b/e/do_you_love_me____doggy___wallpaper_by_alexandruiuilian-d5ct9th.jpg" class = "img-circle" height = "175px" width = "175px">
+        </td>
+        <td class="col-md-4">
+          <h1>Doggy Pics</h1>
+          <%va = 0%>
+          <button type="button" class="btn btn-success" onclick = "changeCount()" >FOLLOW</button>
+          <script type="text/javascript">
+            function changeCount(){
+              
+              // @instagrampics.first.followers=@instagrampic.first.followers+1
+              window.location.reload()
+            }
+          </script>
+          <p> #Cutedoggypics Lover of Dogs, and dogs, mainly dogs
+          </p>
+         <%=@instagrampics.size%> posts           
+          <%=va%> followers                 1000 following 
+         
+        </td>
+        
+        <td class="col-md-3">
+          
+        </td>
+      
+    </tr>
+
+    
+  </table>
+ 
+
+ <style type="text/css">
+      td: {padding-right : 20px; padding-left: 20px; padding-bottom: 20px; padding-top: 20px;}
+
+    </style>
+ <div class="container">
+    
+  <table>
+    <tr >
+      <%  counter=0 %>
+    <% @instagrampics.reverse.each do |picture| %>
+      
+       
+        <%counter=counter+=1%>
+        
+       <td class"col-md-4">
+        <a href="<%= picture.photo_url%>">
+        <img src="<%= picture.photo_url%>" class="img-responsive" height ="350px" max-height = "350px" width="350px" max-width="350px" style="padding-left: 20px"> </a> 
+        <!-- 
+        <%= link_to 'Show', picture %> -->
+        <%= link_to 'Edit', edit_instagrampic_path(picture) %>
+       <%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
+       
+        <% if counter==3%>
+          
+          <%counter=0%>
+          <tr >
+           
+        <%end%>
+      <% end %>
+  </tr>
+  </table>
+  
+</div>
+</body>
+</html>
+
+<%= link_to 'New Instagrampic', new_instagrampic_path %>

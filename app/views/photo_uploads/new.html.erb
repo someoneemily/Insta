@@ -1,0 +1,20 @@
+<h1>PhotoUploads#new</h1>
+<%= form_for :photouploads, url: photouploads_path do |f| %>
+  <p>
+    <%= f.label :Content%><br>
+    <%= f.text_field :Content %>
+  </p>
+ 
+  <p>
+    <%= f.label :PhotoFile %><br>
+    <%= f.text_area :PhotoFile %>
+  </p>
+ 
+  <p>
+
+    <%= f.submit "Upload" , :style => 'padding-top: 8px', :class => 'class_name' %>
+  </p>
+<% end %>
+
+ </div>
+
