@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container-newpic">
 <p>
   <strong>Name:</strong>
   <%= @userprofile.name %>
@@ -22,8 +22,9 @@
 
 <p>
   <strong>Profilepic:</strong>
-  <%= @userprofile.profilepic %>
+  <img  src="<%= @userprofile.profilepic %>" class="img-responsive">
 </p>
 
 <%= link_to 'Edit', edit_userprofile_path(@userprofile) %> |
 <%= link_to 'Back', userprofiles_path %>
+</div>
