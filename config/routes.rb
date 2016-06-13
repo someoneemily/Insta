@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :userprofiles
   get 'instagrampics'=>'instagrampics#index'
   get 'instagrampics/newpage'=> 'instagrampics#newpage'
+  get 'instagrampics'=>'instagrampics#addfollower'
   resources :instagrampics
   #resources :articles
   

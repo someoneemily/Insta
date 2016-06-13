@@ -42,24 +42,26 @@
         </td>
         <td class="col-md-1">
         </td>
-        <td class="col-md-3"><img src="http://pre07.deviantart.net/1ef3/th/pre/f/2012/240/b/e/do_you_love_me____doggy___wallpaper_by_alexandruiuilian-d5ct9th.jpg" class = "img-circle" height = "175px" width = "175px">
+        <td class="col-md-3"><img src="<%=@userprofiles.first.profilepic%>" class = "img-circle" height = "175px" width = "175px">
         </td>
         <td class="col-md-4">
-          <h1>Doggy Pics</h1>
+          <h1><%=@userprofiles.first.name%></h1>
           <%va = 0%>
-          <button type="button" class="btn btn-success" onclick = "changeCount()" >FOLLOW</button>
+<!-- 
+          <%=link_to 'button', :controller => :instagrampics, :action => :addfollower%> -->
+          <button type="button" class="btn btn-success" onClick = "<%addfollower%> changeCount()">FOLLOW</button>
           <script type="text/javascript">
             function changeCount(){
-              
-              // @instagrampics.first.followers=@instagrampic.first.followers+1
+            
               window.location.reload()
             }
           </script>
-          <p> #Cutedoggypics Lover of Dogs, and dogs, mainly dogs
+          <p> <%=@userprofiles.first.description%>
           </p>
          <%=@instagrampics.size%> posts 
 
-          <%=va%> followers                 1000 following 
+          <%=@userprofiles.first.followers%> followers                 1000 following 
+
          
         </td>
         
@@ -86,8 +88,10 @@
        
        <td class"col-md-4">
         <div class="column">
-        <a href="<%= picture.photo_url%>">
-        <img src="<%= picture.photo_url%>" class="img-responsive" height ="350px" width="350px" > </a> 
+          <a href="<%= picture.photo_url%>">
+          <img src="<%= picture.photo_url%>" class="img-responsive" height ="350px" width="350px" > </a> 
+          <label class="likes" ><mark>likes</mark></label>
+          <label class="likes" ><mark>comments</mark></label>
         <!-- 
         <%= link_to 'Show', picture %> -->
         <%= link_to 'Edit', edit_instagrampic_path(picture) %>

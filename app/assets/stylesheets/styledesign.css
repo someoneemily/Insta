@@ -5,6 +5,20 @@
 	margin-bottom: 20px;
 }
 
+.column:hover img{
+	opacity:0.5;
+
+}
+
+.column:hover label{
+	top: 0;
+	display: block;
+}
+
+.column label{
+	display:none;
+}
+
 img-responsive{
 	object-fit: cover;
 	width: 350px;
@@ -15,7 +29,7 @@ img{
 }
 .container-newpic{
 	padding-left: 200px;
-	padding-top: 100px;
+	padding-top: 70px;
 	padding-bottom: 50px;
 	
 }
@@ -25,4 +39,8 @@ img{
 	padding-left: 50px;
 	padding-right: 50px;
 
+}
+.form-group-one{
+	padding-top: 40px;
+	
 }

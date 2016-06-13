@@ -5,7 +5,7 @@
    <tbody>
     <% @userprofiles.each do |userprofile| %>
       <tr>
-           <td><img src="<%= userprofile.profilepic %>"class ="img-circle" height="200" width="200"></td>
+        <td class="col-md-3"><img src="<%= userprofile.profilepic %>"class ="img-circle" height=150 width="150"></td>
         <td><h2><%= userprofile.name %></h2></td>
         <td><%= userprofile.description %></td>
         <td><%= userprofile.followers %></td>

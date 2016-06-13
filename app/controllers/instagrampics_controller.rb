@@ -6,8 +6,13 @@ class InstagrampicsController < ApplicationController
   def index
     @instagrampics = Instagrampic.all
     @instagrampic = Instagrampic.new
+    @userprofile=Userprofile.new
+    @userprofiles=Userprofile.all
   end
-
+def addfollower
+  @userprofiles.first.update_attribute(:followers, @userprofiles.first.followers.to_i+1)
+end
+helper_method :addfollower
   # GET /instagrampics/1
   # GET /instagrampics/1.json
   def show
