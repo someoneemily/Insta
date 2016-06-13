@@ -22,6 +22,8 @@ helper_method :addfollower
   def new
     @instagrampic = Instagrampic.new
     @instagrampics = Instagrampic.all
+      @userprofile=Userprofile.new
+    @userprofiles=Userprofile.all
   end
   def newpage
     @instagrampic = Instagrampic.newpage

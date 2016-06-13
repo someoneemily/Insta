@@ -43,19 +43,22 @@
     </tr>
     <tr class = "row" >
       
-        <td class="col-md-1">
+       <td class="col-md-1">
         </td>
         <td class="col-md-1">
         </td>
-        <td class="col-md-3"><img src="http://pre07.deviantart.net/1ef3/th/pre/f/2012/240/b/e/do_you_love_me____doggy___wallpaper_by_alexandruiuilian-d5ct9th.jpg" class = "img-circle" height = "175px" width = "175px">
+        <td class="col-md-3"><img src="<%=@userprofiles.first.profilepic%>" class = "img-circle" height = "175px" width = "175px">
         </td>
         <td class="col-md-4">
-          <h1>Doggy Pics</h1>
-          <button type="button" class="btn btn-default">Edit Profile</button>
-          <p> #Cutedoggypics Lover of Dogs, and dogs, mainly dogs
+          <h1><%=@userprofiles.first.name%></h1>
+         <a href='/userprofiles'>
+          <button type="button" class="btn btn-default">Edit Profile</button></a>
+          <p> <strong>#<%=@userprofiles.first.name%></strong>
+            <%=@userprofiles.first.description%>
           </p>
-       <%=@instagrampics.size%>posts
-                 1 follower                 0 following 
+          <strong><%=@instagrampics.size%></strong> posts 
+
+          <strong><%=@userprofiles.first.followers%> </strong>followers                 <strong>1000</strong> following 
                   </td>
         
         <td class="col-md-3">
