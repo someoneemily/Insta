@@ -7,7 +7,7 @@
 	background-color: white;
 }
 
-.column:hover{
+.column:hover div.overlay{
 	
 
 	opacity:0.5;
