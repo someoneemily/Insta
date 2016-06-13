@@ -3,20 +3,54 @@
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-bottom: 20px;
+	position: relative;
+	background-color: white;
 }
 
-.column:hover img{
+.column:hover{
+	
+
 	opacity:0.5;
-
-}
-
-.column:hover label{
-	top: 0;
+	background-color: #000;
+	
+	height: 100%;
 	display: block;
 }
 
+
 .column label{
 	display:none;
+}
+
+.column:hover label{
+	position: absolute;
+	display: block;
+}
+
+.column:hover label.likes{
+	top:45%;
+	left:25%;
+	color:#FFFFFF; 
+}
+
+
+.column:hover label.comments{
+	top:45%;
+	left:50%;
+	color:#FFFFFF;
+}
+
+.column:hover label.remove{
+	top:90%;
+	left:90%;
+	
+}
+
+.container-header{
+	padding-top: 15px;
+}
+.container-pic{
+	padding-top: 8px;
 }
 
 img-responsive{

@@ -10,8 +10,11 @@
     <tr class = "row"style="background-color:#FFFFFF">
       <td class="col-md-1">
       </td>
+
       <td class="col-md-1">
+        <div class="container-pic">
         <img src="http://www.clker.com/cliparts/S/B/l/d/h/t/frameless-camera.svg" height="50px" width="50px" class="pull-right">
+        </div>
       </td>
       <td class="col-md-3">  <p class="text-lg-left"><h3>InstagramME</h3></p> 
       </td>
@@ -25,17 +28,19 @@
       </td>
       
       <td class="col-md-3">
+        <div class="container-header">
         <button type="button" class="btn btn-primary">Get the web</button>
-        
-         <button class="btn btn-default active" onclick ="window.open('instagrampics/new')" >
-          <img src="http://www.educationalappstore.com/images/upload/9340-logo-mzl.gdamjwas.png" width="40">
-        </button>
+        <a href = '/instagrampics/new'><img src="https://cdn4.iconfinder.com/data/icons/maps-and-navigation-solid-icons-vol-1/72/09-512.png" width="35"class ="img-rounded"></a>
+         
+          </div>
+       
        <!--  <form action="localhost:3000/instagrampics/new">
           <input type = "LogIN" value"LogIN">
         </form> -->
       </td>
       
     </tr>
+  
     <tr class = "row" >
       
         <td class="col-md-1">
@@ -56,11 +61,12 @@
               window.location.reload()
             }
           </script>
-          <p> <%=@userprofiles.first.description%>
+          <p> <strong>#<%=@userprofiles.first.name%></strong>
+            <%=@userprofiles.first.description%>
           </p>
-         <%=@instagrampics.size%> posts 
+          <strong><%=@instagrampics.size%></strong> posts 
 
-          <%=@userprofiles.first.followers%> followers                 1000 following 
+          <strong><%=@userprofiles.first.followers%> </strong>followers                 <strong>1000</strong> following 
 
          
         </td>
@@ -81,6 +87,7 @@
   <table>
     <tr >
       <%  counter=0 %>
+
     <% @instagrampics.reverse.each do |picture| %>
       
        
@@ -88,14 +95,16 @@
        
        <td class"col-md-4">
         <div class="column">
-          <a href="<%= picture.photo_url%>">
+          <div class="overlay">
+          <a href="/instagrampics/<%=picture.id%>">
           <img src="<%= picture.photo_url%>" class="img-responsive" height ="350px" width="350px" > </a> 
-          <label class="likes" ><mark>likes</mark></label>
-          <label class="likes" ><mark>comments</mark></label>
-        <!-- 
-        <%= link_to 'Show', picture %> -->
-        <%= link_to 'Edit', edit_instagrampic_path(picture) %>
-       <%= link_to 'Remove', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <label class="likes" >likes</label>
+          <label class="comments" >comments</label>
+          <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), picture, method: :delete, data: { confirm: 'Are you sure?' } %></label>
+        </div>
+       <!--  <%= link_to 'Show', picture %> 
+        <%= link_to 'Edit', edit_instagrampic_path(picture) %> -->
+        
       </div> 
       </td>
       
