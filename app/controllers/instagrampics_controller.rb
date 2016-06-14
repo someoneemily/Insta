@@ -18,6 +18,7 @@ helper_method :addfollower
   def show
   end
 
+
   # GET /instagrampics/new
   def new
     @instagrampic = Instagrampic.new

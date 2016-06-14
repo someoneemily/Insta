@@ -1,0 +1,45 @@
+
+.modal-container{
+	position: fixed;
+	background-color: #fff;
+	
+	width: 100%;
+	max-width: 1000px;
+	max-height:1000px;
+	left:50%;
+	padding:20px;
+	
+
+	webkit-transform: translate(-50%, -10000%);
+	-ms-transform: translate(-50%, -10000%);
+	transform: translate(-50%, -10000%);
+	
+
+}
+
+.modal-mine:before{
+	content: "";
+	position: fixed;
+	display: none;
+
+	background-color: rgba(0,0,0,0.8);
+	top:0;
+	left: 0;
+	height: 100%;
+	width:100%;
+
+}
+
+.modal-mine:target:before{
+	display: block;
+
+}
+
+.modal-mine:target .modal-container{
+	top:15%;
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+
+#modal-close{}

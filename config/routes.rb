@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'userprofiles/inde'=> 'userprofiles#inde'
   
   resources :userprofiles
+
   get 'instagrampics'=>'instagrampics#index'
-  get 'instagrampics/newpage'=> 'instagrampics#newpage'
+  
   get 'instagrampics'=>'instagrampics#addfollower'
   get 'instagrampics/index'=>'instagrampics#index'
   resources :instagrampics

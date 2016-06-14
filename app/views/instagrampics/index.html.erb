@@ -2,6 +2,10 @@
 
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <link href="/Users/echen/Downloads/lightbox2-master/dist/css/lightbox.css" rel="stylesheet">
+
   <title>InstagramME</title>
 </head>
 <body style="background-color:#F7F7F7">
@@ -94,21 +98,31 @@
         <%counter=counter+=1%>
        
        <td class"col-sm-4">
-
+ <a href="#scats<%=picture.id%>">Cats</a>
          <div class="img-outside"> 
           <div class="column" >
           <a href="/instagrampics/<%=picture.id%>">
-          <img src="<%= picture.photo_url%>" class="img-responsive"> </a> 
+          <img src="<%= picture.photo_url%>" > </a> 
           <div class="overlay">
           <label class="likes" >likes</label>
           <label class="comments" >comments</label>
           <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), picture, method: :delete, data: { confirm: 'Are you sure?' } %></label>
           </div>
+          
+          
        <!--  <%= link_to 'Show', picture %> 
         <%= link_to 'Edit', edit_instagrampic_path(picture) %> -->
         
         </div> 
       </div>
+          <div class="modal-mine" id="scats<%=picture.id%>">
+                <div class="modal-container">
+                <p><img src="<%= picture.photo_url%>" class="img-responsive"></p>
+                <a href="#modal-close">Close</a>
+                </div>
+           </div>
+    
+        
       </td>
       
        
@@ -123,6 +137,8 @@
   </table>
   
 </div>
+
+  
 </body>
 </html>
 

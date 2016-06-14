@@ -13,6 +13,11 @@ class UserprofilesController < ApplicationController
   def show
   end
 
+  def inde
+    @userprofiles = Userprofile.all
+    @userprofile = Userprofile.new
+  end
+
   # GET /userprofiles/new
   def new
     @userprofile = Userprofile.new
