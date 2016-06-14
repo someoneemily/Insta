@@ -1,22 +1,44 @@
 .column{
-	margin-top: 20px;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 20px;
+	margin-top: 30px;
+	margin-left: 15px;
+	margin-right: 15px;
 	position: relative;
-	background-color: white;
+	
+	width: 290px;
+	height: 290px;
+	max-width:300px;
+	
+	background-position: center center;
+	background-size: 100% auto;
+	
+	overflow: hidden;
+	text-align: center;
+	
+
 }
 
-.column:hover div.overlay{
-	
+.column img{
+	width:100%;
+	height:100%;
+}
 
-	opacity:0.5;
-	background-color: #000;
+
+.img-outside:hover .column{
 	
-	height: 100%;
+	background-color: black;
+	
+	
 	display: block;
 }
 
+.column:hover img{
+	opacity: 0.7;
+}
+
+.r-header{
+	padding-top: 100px;
+	
+}
 
 .column label{
 	display:none;
