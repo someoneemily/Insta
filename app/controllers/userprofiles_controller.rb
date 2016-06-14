@@ -20,6 +20,7 @@ class UserprofilesController < ApplicationController
 
   # GET /userprofiles/1/edit
   def edit
+    @userprofiles = Userprofile.all
   end
 
   # POST /userprofiles
