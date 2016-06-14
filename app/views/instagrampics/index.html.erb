@@ -98,10 +98,12 @@
         <%counter=counter+=1%>
        
        <td class"col-sm-4">
- <a href="#scats<%=picture.id%>">Cats</a>
+
          <div class="img-outside"> 
           <div class="column" >
-          <a href="/instagrampics/<%=picture.id%>">
+            <!-- 
+          <a href="/instagrampics/<%=picture.id%>"> -->
+             <a href="#<%=picture.id%>">
           <img src="<%= picture.photo_url%>" > </a> 
           <div class="overlay">
           <label class="likes" >likes</label>
@@ -115,7 +117,7 @@
         
         </div> 
       </div>
-          <div class="modal-mine" id="scats<%=picture.id%>">
+          <div class="modal-mine" id="<%=picture.id%>">
                 <div class="modal-container">
                 <p><img src="<%= picture.photo_url%>" class="img-responsive"></p>
                 <a href="#modal-close">Close</a>
