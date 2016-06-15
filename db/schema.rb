@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610193200) do
+ActiveRecord::Schema.define(version: 20160615161256) do
 
   create_table "instagrampics", force: :cascade do |t|
     t.string   "photo_url"
@@ -34,14 +34,18 @@ ActiveRecord::Schema.define(version: 20160610193200) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "userprofiles", force: :cascade do |t|
+# Could not dump table "userprofiles" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.string   "email"
+    t.string   "pic_url"
     t.string   "followers"
     t.string   "following"
-    t.string   "profilepic"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

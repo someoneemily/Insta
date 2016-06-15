@@ -34,8 +34,12 @@
       <td class="col-sm-3">
         <div class="container-header">
         <button type="button" class="btn btn-primary">Get the web</button>
+
+        <%if current_user%>
         <a href = '/instagrampics/new'><img src="https://cdn4.iconfinder.com/data/icons/maps-and-navigation-solid-icons-vol-1/72/09-512.png" width="35"class ="img-rounded"></a>
-         
+        <%else%>
+        <a href='/login'><button type="button" class="btn btn-link">Log in</button></a>
+       <%end%>
           </div>
        
        <!--  <form action="localhost:3000/instagrampics/new">
