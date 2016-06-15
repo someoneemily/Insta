@@ -1,5 +1,41 @@
 <p id="notice"><%= notice %></p>
-
+<table class="table table-hover">
+ <tr class = "row"style="background-color:#FFFFFF">
+      <td class="col-md-1">
+      </td>
+      <td class="col-md-1">
+        <div class="container-pic">
+        <a href ='/instagrampics/index'>
+        <img src="http://www.clker.com/cliparts/S/B/l/d/h/t/frameless-camera.svg" height="50px" width="50px" class="pull-right"></a>
+      </div>
+      </td>
+      <td class="col-md-3">  <p class="text-lg-left"><h3>InstagramME</h3></p> 
+      </td>
+      <td class="col-md-4">
+        <div class="col-md-6">
+          <div class "form-group">
+            <label for="SearchBox"></label>
+            <input type = "Search" class = "form-control" id = "Searchbox" placeholder= "Search">
+          </div>
+        </div>
+      </td>
+      
+      <td class="col-md-3">
+        <div class="container-header">
+        <button type="button" class="btn btn-primary">Get the web</button>
+      </div>
+        <!-- <button href="#" type="button" class="btn btn-link active" role="button"onclick ="window.open('instagrampics/new')">Log IN</button>  -->
+       <!--  <form action="localhost:3000/instagrampics/new">
+          <input type = "LogIN" value"LogIN">
+        </form> -->
+       
+      
+        
+      </td>
+      
+    </tr>
+</table>
+<div class="container-newpic">
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -27,3 +63,4 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+</div>

@@ -69,7 +69,7 @@
 <!-- 
           <%=link_to 'button', :controller => :instagrampics, :action => :addfollower%> -->
           <% if current_user%>
-            <a href='/userprofiles'><button type="button" class="btn btn-default">Edit Profile</button></a>
+            <a href='/users/<%=@user.id%>/edit'><button type="button" class="btn btn-default">Edit Profile</button></a>
             <a href='/logout'><img src="https://cdn1.iconfinder.com/data/icons/navigation-icon/128/log_out-128.png" width="31px" height="31px" ></a></a>
           <%else%>
           <button type="button" class="btn btn-success" onClick = "<%addfollower%> changeCount()">FOLLOW</button>
