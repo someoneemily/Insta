@@ -39,9 +39,10 @@
 
         <%if current_user%>
         <a href='/instagrampics/index' ><img src="https://cdn1.iconfinder.com/data/icons/smashicons-the-essentials-outline/55/295_-_Profile_Outline-128.png" width="32" height="32"></a>
-        <a href = '/instagrampics/new'><img src="https://cdn4.iconfinder.com/data/icons/maps-and-navigation-solid-icons-vol-1/72/09-512.png" width="35"class ="img-rounded"></a>
+        <a href = '/pictures/new'><img src="https://cdn4.iconfinder.com/data/icons/maps-and-navigation-solid-icons-vol-1/72/09-512.png" width="35"class ="img-rounded"></a>
 
         <%else%>
+        <a href='/signup'><img src="https://cdn0.iconfinder.com/data/icons/thin-users-people/57/thin-198_user_create_add_new-512.png" width= "30" height="30"></a>
         <button type="button" class="btn btn-primary">Get the web</button>
         <a href='/login'><button type="button" class="btn btn-link">Log in</button></a>
        <%end%>
@@ -69,6 +70,7 @@
           <%=link_to 'button', :controller => :instagrampics, :action => :addfollower%> -->
           <% if current_user%>
             <a href='/userprofiles'><button type="button" class="btn btn-default">Edit Profile</button></a>
+            <a href='/logout'><img src="https://cdn1.iconfinder.com/data/icons/navigation-icon/128/log_out-128.png" width="31px" height="31px" ></a></a>
           <%else%>
           <button type="button" class="btn btn-success" onClick = "<%addfollower%> changeCount()">FOLLOW</button>
           <script type="text/javascript">
@@ -105,39 +107,56 @@
     <tr >
       <%  counter=0 %>
 
-    <% @instagrampics.reverse.each do |picture| %>
+    <% @pictures.reverse.each do |pic| %>
       
        
         <%counter=counter+=1%>
        
        <td class"col-sm-4">
-
-         <div class="img-outside"> 
-          <div class="column" >
-            <!-- 
-          <a href="/instagrampics/<%=picture.id%>"> -->
-             <a href="#<%=picture.id%>">
-          <img src="<%= picture.photo_url%>" > </a> 
-          <div class="overlay">
-          <label class="likes" >likes</label>
-          <label class="comments" >comments</label>
-          <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), picture, method: :delete, data: { confirm: 'Are you sure?' } %></label>
-          </div>
-          
-          
-       <!--  <%= link_to 'Show', picture %> 
-        <%= link_to 'Edit', edit_instagrampic_path(picture) %> -->
         
-        </div> 
-      </div>
-          <div class="modal-mine" id="<%=picture.id%>">
-                <div class="modal-container">
-                <p><img src="<%= picture.photo_url%>" class="img-responsive"></p>
-                <a href="#modal-close">Close</a>
-                </div>
-           </div>
-    
+        <%if current_user%>
+          <%if pic.user_id==@user.id%>
+             <div class="img-outside"> 
+              <div class="column" >
+                <!-- <a href="/instagrampics/<%=pic.id%>"> -->
+                 <a href="#<%=pic.id%>">
+              <img src="<%= pic.profileurl%>" > </a> 
+              <div class="overlay">
+              <label class="likes" >likes</label>
+              <label class="comments" >comments</label>
+              <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), pic, method: :delete, data: { confirm: 'Are you sure?' } %></label>
+              </div>
+             </div> 
+            </div>
+            <div class="modal-mine" id="<%=pic.id%>">
+              <div class="modal-container">
+              <p><img src="<%= pic.profileurl%>" class="img-responsive"></p>
+              <a href="#modal-close">Close</a>
+              </div>
+            </div>
+            <%end%>
+        <%else%>
+             <div class="img-outside"> 
+              <div class="column" >
+                <!-- <a href="/instagrampics/<%=pic.id%>"> -->
+                 <a href="#<%=pic.id%>">
+              <img src="<%= pic.profileurl%>" > </a> 
+              <div class="overlay">
+              <label class="likes" >likes</label>
+              <label class="comments" >comments</label>
+              <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), pic, method: :delete, data: { confirm: 'Are you sure?' } %></label>
+              </div>
+             </div> 
+            </div>
+            <div class="modal-mine" id="<%=pic.id%>">
+              <div class="modal-container">
+              <p><img src="<%= pic.profileurl%>" class="img-responsive"></p>
+              <a href="#modal-close">Close</a>
+              </div>
+            </div>
         
+       
+        <%end%>
       </td>
       
        
@@ -145,7 +164,8 @@
           
           <%counter=0%>
           <tr >
-           
+           <!--  <%= link_to 'Show', pic %> 
+        <%= link_to 'Edit', edit_instagrampic_path(pic) %> -->
         <%end%>
       <% end %>
   </tr>

@@ -8,6 +8,11 @@ class InstagrampicsController < ApplicationController
     @instagrampic = Instagrampic.new
     @userprofile=Userprofile.new
     @userprofiles=Userprofile.all
+   
+    @user=current_user
+     @users=User.all
+    @pictures=Picture.all
+
   end
 def addfollower
   @userprofiles.first.update_attribute(:followers, @userprofiles.first.followers.to_i+1)
@@ -25,6 +30,8 @@ helper_method :addfollower
     @instagrampics = Instagrampic.all
       @userprofile=Userprofile.new
     @userprofiles=Userprofile.all
+   
+    @users=User.all 
   end
   def newpage
     @instagrampic = Instagrampic.newpage

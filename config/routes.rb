@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :pictures
+  resources :pictures
+  resources :pictures
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   get 'signup', to: 'users#new', as: 'signup'
