@@ -61,10 +61,19 @@
         </td>
         <td class="col-sm-1 r-header">
         </td>
-        <td class="col-sm-3 r-header"><img src="<%=@userprofiles.first.profilepic%>" class = "img-circle" height = "175px" width = "175px">
-        </td>
+        <%if current_user%>
+          <td class="col-sm-3 r-header"><img src="<%=@user.pic_url%>" class = "img-circle" height = "175px" width = "175px">
+          </td>
+        <%else%>
+          <td class="col-sm-3 r-header"><img src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300" class = "img-circle" height = "175px" width = "175px">
+        <%end%>
+
         <td class="col-sm-4 r-header">
-          <h1><%=@userprofiles.first.name%></h1>
+          <%if current_user%>
+          <h1><%=@user.name%></h1>
+          <%else%>
+          <h1>Your Username Here :P</h1>
+          <%end%>
           <%va = 0%>
 <!-- 
           <%=link_to 'button', :controller => :instagrampics, :action => :addfollower%> -->
