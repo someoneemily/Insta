@@ -115,3 +115,11 @@ img{
 	padding-top: 40px;
 	
 }
+
+.instagrampicprofile{
+	background-image: url(//instagramstatic-a.akamaihd.net/h1/sprites/whiteout/829d8b.png);
+    background-repeat: no-repeat;
+    background-position: -674px -168px;
+    height: 24px;
+    width: 24px;
+}

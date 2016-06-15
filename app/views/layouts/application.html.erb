@@ -11,7 +11,7 @@
 <link rel="stylesheets" href="js/modal.css">
 </head>
 <body>
-	<div id="user_header">
+	<!-- <div id="user_header">
 	<% if current_user %>
 	Logged in as <%= current_user.email %>.
 	<%= link_to "Log Out", logout_path %>
@@ -24,7 +24,7 @@
 	<%= content_tag(:div, class: "alert alert-#{key}") do %>
 	<p><%= value %></p>
 	<% end %>
-	<% end %>
+	<% end %> -->
 <%= yield %>
  <script src="/Users/echen/Downloads/lightbox2-master/dist/js/lightbox.js"></script>
 </body>
