@@ -137,17 +137,20 @@
     
   <table>
     <tr >
-      <%  counter=0 %>
+      <% counter=0 %>
 
     <% @pictures.reverse.each do |pic| %>
       
        
-        <%counter=counter+=1%>
+      
        
-       <td class"col-sm-4">
+      
         
         <%if current_user%>
+       
           <%if pic.user_id==@user.id%>
+            <%counter=counter+=1%>
+            <td class"col-sm-4">
              <div class="img-outside"> 
               <div class="column" >
                 <!-- <a href="/instagrampics/<%=pic.id%>"> -->
@@ -160,14 +163,19 @@
               </div>
              </div> 
             </div>
-            <div class="modal-mine" id="<%=pic.id%>">
-              <div class="modal-container">
-              <p><img src="<%= pic.profileurl%>" class="img-responsive"></p>
+            <div class="modal-mine" id="<%=pic.id%>"style="display:inline-block">
+              <div class="modal-container"style="display:inline-block">
+              <p><img src="<%= pic.profileurl%>" class="img-responsive" width="70%"><textarea width="30%">how DOES THIS WORK?!</textarea></p>
               <a href="#modal-close">Close</a>
               </div>
             </div>
-            <%end%>
+            </td>
+          <%end%>
+           
+
         <%else%>
+          <%counter=counter+=1%>
+          <td class"col-sm-4">
              <div class="img-outside"> 
               <div class="column" >
                 <!-- <a href="/instagrampics/<%=pic.id%>"> -->
@@ -182,14 +190,13 @@
             </div>
             <div class="modal-mine" id="<%=pic.id%>" style="display:inline-block">
               <div class="modal-container" style="display:inline-block">
-              <p><img src="<%= pic.profileurl%>" class="img-responsive" width="70%"><textarea width="30%">how DOES THIS WORK?!</textarea></p>
+              <p><img src="<%= pic.profileurl%>" class="img-responsive" width="70%" ><textarea width="30%">how DOES THIS WORK?!</textarea></p>
               <a href="#modal-close">Close</a>
               </div>
             </div>
-        
-       
+          </td>
         <%end%>
-      </td>
+     
       
        
         <% if counter==3%>
@@ -199,6 +206,7 @@
            <!--  <%= link_to 'Show', pic %> 
         <%= link_to 'Edit', edit_instagrampic_path(pic) %> -->
         <%end%>
+
       <% end %>
   </tr>
   </table>
