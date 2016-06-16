@@ -17,6 +17,7 @@
 
 }
 
+
 .modal-mine:before{
 	content: "";
 	position: fixed;
@@ -28,12 +29,13 @@
 	height: 100%;
 	width:100%;
 
-	z-index=10000;
+	
 }
+
 
 .modal-mine:target:before{
 	display: block;
-
+	z-index:10000;
 }
 
 .modal-mine:target .modal-container{
@@ -41,6 +43,12 @@
 	-webkit-transform: translate(-50%, 0);
 	-ms-transform: translate(-50%, 0);
 	transform: translate(-50%, 0);
+	z-index: 10000;
+}
+
+.modal-mine:target .modal-container img{
+	max-height: 800px;
+	z-index: 10000;
 }
 
 #modal-close{}
