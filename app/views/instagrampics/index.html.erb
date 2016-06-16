@@ -89,12 +89,35 @@
             }
           </script>
           <%end%>
-          <p> <strong>#<%=@userprofiles.first.name%></strong>
-            <%=@userprofiles.first.description%>
-          </p>
-          <strong><%=@instagrampics.size%></strong> posts 
+          <%if current_user%>
+            <p> <strong>#<%=@user.name%></strong>
+              <%=@user.description%>
+            </p>
+          <%else%>
+            <p> <strong>#<%=@userprofiles.first.name%></strong>
+              <%=@userprofiles.first.description%>
+            </p>
+          <%end%>
 
-          <strong><%=@userprofiles.first.followers%> </strong>followers                 <strong>1000</strong> following 
+          <%couner=0%>
+          <%@pictures.each do |x|%>
+            <%if current_user&&@user.id==x.user_id%>
+              <%couner+=1%>
+            <%end%>
+          <%end%>
+          
+
+
+          <%if current_user%>
+            <strong><%=couner%></strong>
+          <%else%>
+            <strong><%=@pictures.size%></strong>  
+          <%end%>posts
+
+          <%if current_user%>
+            <strong><%=@user.followers%> </strong>
+          <%else%>
+          <strong><%=@userprofiles.first.followers%> </strong><%end%>followers                 <strong>1000</strong> following 
 
          
         </td>

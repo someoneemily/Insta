@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615195041) do
+ActiveRecord::Schema.define(version: 20160616134900) do
 
   create_table "instagrampics", force: :cascade do |t|
     t.string   "photo_url"
@@ -33,10 +33,9 @@ ActiveRecord::Schema.define(version: 20160615195041) do
     t.integer  "likes"
     t.string   "comments"
     t.string   "description"
-    t.string   "profileurl"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    
+    t.string   "profileurl"
   end
 
   create_table "recumes", force: :cascade do |t|
@@ -56,8 +55,10 @@ ActiveRecord::Schema.define(version: 20160615195041) do
     t.string   "followers"
     t.string   "following"
     t.string   "password_digest"
+    t.string   "description"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    
   end
 
 end
