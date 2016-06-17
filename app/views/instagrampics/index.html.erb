@@ -43,7 +43,7 @@
 
         <%else%>
         <a href='/signup'><img src="https://cdn0.iconfinder.com/data/icons/thin-users-people/57/thin-198_user_create_add_new-512.png" width= "30" height="30"></a>
-        <button type="button" class="btn btn-primary">Get the web</button>
+        <button type="button" class="btn btn-info">Get the web</button>
         <a href='/login'><button type="button" class="btn btn-link">Log in</button></a>
        <%end%>
           </div>
@@ -81,6 +81,7 @@
             <a href='/users/<%=@user.id%>/edit'><button type="button" class="btn btn-default">Edit Profile</button></a>
             <a href='/logout'><img src="https://cdn1.iconfinder.com/data/icons/navigation-icon/128/log_out-128.png" width="31px" height="31px" ></a></a>
           <%else%>
+         
           <button type="button" class="btn btn-success" onClick = "<%addfollower%> changeCount()">FOLLOW</button>
           <script type="text/javascript">
             function changeCount(){
@@ -115,9 +116,11 @@
           <%end%>posts
 
           <%if current_user%>
-            <strong><%=@user.followers%> </strong>
+            <strong><%=@user.followers.to_i%> </strong> followers  <strong><%=@user.following.to_i%></strong> following 
           <%else%>
-          <strong><%=@userprofiles.first.followers%> </strong><%end%>followers                 <strong>1000</strong> following 
+          <strong><%=@userprofiles.first.followers%> </strong><%end%>               
+
+          
 
          
         </td>
@@ -148,29 +151,41 @@
              <div class="img-outside"> 
               <div class="column" >
                 <!-- <a href="/instagrampics/<%=pic.id%>"> -->
-                 <a href="#<%=pic.id%>">
+                 <a href="#<%=pic.id%>" class = "over-the-img">
               <img src="<%= pic.profileurl%>" > </a> 
               <div class="overlay">
-              <label class="likes" >likes</label>
-              <label class="comments" >comments</label>
+              <label class="likes" ><img src="http://www.partygamecentral.com/icns/heart_icon_white.png" width="30px" height="30px"><%=pic.likes%></label>
+              <label class="comments" ><img src="http://desmeriletisim.com/wp-content/uploads/2016/04/icon-contact-white.png"><%=pic.comments%></label>
               <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), pic, method: :delete, data: { confirm: 'Are you sure?' } %></label>
               </div>
              </div> 
             </div>
             <div class="modal-mine" id="<%=pic.id%>"style="display:inline-block">
               <div class="modal-container"style="display:inline-block">
-              <p><img src="<%= pic.profileurl%>" class="img-responsive" width="70%"><textarea width="30%">
-                
-                  <%=pic.description%>
-                   <%=pic.comments%>
-                
-                
-              </textarea></p>
+               
+              <img src="<%= pic.profileurl%>" class="img-responsive" width="70%">
+                 
+                <h5 class="description">Description: <%=pic.description%></h5>
+                <span width="30%" class="description">
+                 View all comments:
+                   <p><span height="300px"><%=pic.comments.to_s%></span></p>
+                </span>
+
+                <hr>
+              <div style="float:left" style="margin-top: 0pt">
+              
+                  
+                   
+                  <%=link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/5/52/Heart_icon_red_hollow.svg", width: 30, height: 30), {:controller =>'instagrampics', :action =>"updatelikes", :picture => pic.id} %> 
+              
+              </div>
               <p>
-                <%=pic.likes %> likes
-                <%=link_to 'Like', {:controller =>'instagrampics', :action =>"updatelikes", :picture => pic.id} %>
-                
-              </p>  
+              <span class="commentsection">
+                <input type ="text" placeholder="Add a comment..">
+              
+              </span>
+              </p>
+
              
               <a href="#modal-close">Close</a>
               </div>
@@ -185,18 +200,23 @@
              <div class="img-outside"> 
               <div class="column" >
                 <!-- <a href="/instagrampics/<%=pic.id%>"> -->
-                 <a href="#<%=pic.id%>">
-              <img src="<%= pic.profileurl%>" > </a> 
+                 <a href="#<%=pic.id%>" class="over-the-img">
+              <img src="<%= pic.profileurl%>"></a> 
               <div class="overlay">
-              <label class="likes" >likes</label>
-              <label class="comments" >comments</label>
+              <label class="likes" ><img src="http://www.partygamecentral.com/icns/heart_icon_white.png" width="30px" height="30px"><%=pic.likes%></label>
+              <label class="comments" ><img src="http://desmeriletisim.com/wp-content/uploads/2016/04/icon-contact-white.png"><%=pic.comments%></label>
               <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), pic, method: :delete, data: { confirm: 'Are you sure?' } %></label>
               </div>
              </div> 
             </div>
             <div class="modal-mine" id="<%=pic.id%>" style="display:inline-block">
               <div class="modal-container" style="display:inline-block">
-              <p><img src="<%= pic.profileurl%>" class="img-responsive" width="70%" ><textarea width="30%">how DOES THIS WORK?!</textarea></p>
+              <p><img src="<%= pic.profileurl%>" class="img-responsive" width="70%" ></p>
+              <p class="description">
+                  <h5 class="description">Description: <%=pic.description%></h5>
+                </p>
+                </p><textarea width="30%">how DOES THIS WORK?!</textarea></p>
+              <%=pic.likes%>  likes
               <a href="#modal-close">Close</a>
               </div>
             </div>

@@ -18,9 +18,47 @@
 
 }
 
+h5.description{
+	color: 	#668B8B;
+	border-bottom-style: solid;
+	border-width: 1px;
+
+
+}
+
+span.description{
+	float-right;
+	
+
+	width: 350px;
+	height: 375px;
+	max-height: 375px;
+
+}
+
+.commentsection{
+
+	margin-left: 5px;
+	
+	border-style: none;
+	width: 100%;
+	
+
+}
+
+.overlay{
+	z-index: 10;
+}
+
 a:hover img{
 	background-color: #FFFFFF;
 }
+
+a:hover .over-the-img{
+	background: transparent !important;
+	display: block;
+}
+
 
 a:hover{
 	background-color: #B0E0E6;
@@ -34,6 +72,20 @@ a:hover{
 
 .columnofpic{
 	z-index: -1;
+}
+
+.likes img{
+	max-width: 30px;
+	max-height: 30px;
+	height: 100%;
+
+}
+
+.comments img{
+	max-width: 30px;
+	max-height: 30px;
+	height: 100%;
+
 }
 
 .modal-img{

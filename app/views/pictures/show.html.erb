@@ -88,10 +88,10 @@
   <strong>Description:</strong>
   <%= @picture.description %>
 </p>
-<p>Picture
-  here<%=@picture.profileurl%>here
+<p>
 <img src="<%=@picture.profileurl%>"height="300">
 </p>
+<%=link_to 'Home', root_url%>
 <!-- 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
  <%= link_to 'Back', pictures_path %>
