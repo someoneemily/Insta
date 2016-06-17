@@ -19,6 +19,8 @@ class PicturesController < ApplicationController
     @users=User.all 
   end
 
+
+
   # GET /pictures/new
   def new
     @picture = Picture.new

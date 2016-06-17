@@ -17,6 +17,21 @@
 	
 
 }
+
+a:hover img{
+	background-color: #FFFFFF;
+}
+
+a:hover{
+	background-color: #B0E0E6;
+}
+ a:focus .som{
+ 	content: url('https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-128.png');
+    display: block;
+    width: 30px;
+    height: 30px;
+ }
+
 .columnofpic{
 	z-index: -1;
 }

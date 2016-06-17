@@ -17,6 +17,10 @@
 
 }
 
+.modal-container .img-responsive{
+	float:left;
+	padding-right: 20px;
+}
 
 .modal-mine:before{
 	content: "";
