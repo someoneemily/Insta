@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'updatelikes', to: 'instagrampics#updatelikes'
+  get 'updatecomments', to:'instagrampics#updatecomments'
 
   get 'userprofiles/inde'=> 'userprofiles#inde'
   

@@ -26,12 +26,19 @@ class InstagrampicsController < ApplicationController
 
 end
 
+def updatecomments
+  @user=current_user
+  @picture=Picture.find(params[:picture])
+  @picture.comments=@picture.comments.to_s+"\n| "+@user.name.to_s+": "+params[:commentadd].to_s+"\n"+"1"
+  @picture.save
+  redirect_to "/instagrampics/index/##{@picture.id}"
+end
 
 def addfollower
   @userprofiles.first.update_attribute(:followers, @userprofiles.first.followers.to_i+1)
 end
 
-helper_method :addfollower, :updatelikes
+helper_method :addfollower, :updatelikes, :updatecomments
 
 
 
