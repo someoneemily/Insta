@@ -24,14 +24,23 @@
       </td>
       <td class="col-sm-4">
      
-          <div class "form-group" style="display:inline-block">
+          <div class "form-group" style="margin-top:20px; width:80%">
             
-            <div>
-            <input type = "Search" class = "form-control" id = "Searchbox" placeholder= "Search" style="display:inline-block float:left" width="80%">
-            <button type = "button" style="float:right" ><span class="glyphicon glyphicon-search"></span></button>
+          <div class="input-group changethisone">
+            <input type = "text" class = "form-control" id = "Searchbox" placeholder= "Search" style="background-color: #FFF;  border-right-style:none" />
+           
+            <span class="input-group-addon" style="background-color:#FFF">
+              <a >
+              <i class="glyphicon glyphicon-search"  style="float:right" onclick="searchtheplace"></i></a>
+              <script type="text/javascript">
+                function searchtheplace(){
+                  window.location.reload();
+                }
+              </script>
+            </span>
           </div>
           </div>
-       
+          
       </td>
      
       <td class="col-sm-3">
@@ -186,8 +195,9 @@
             
               <span class="commentsection">
                 <input type ="text" name="addedcomment" id="commentadd" placeholder="Add a comment..">
+
                   <div style="float:left" style="margin-top: 0px; margin-left:5px">
-                    <%=link_to image_tag("https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/256/comments.png", width: 25, height: 25), {:controller =>'instagrampics', :action =>"updatecomments", :picture => pic.id}%> 
+                    <%=link_to image_tag("https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/256/comments.png", width: 25, height: 25), {:controller =>'instagrampics', :action =>"updatecomments", :picture => pic.id, :commentadd=>params[:addedcomment]}%> 
                    
                   </div>
               </span>
