@@ -1,22 +1,130 @@
 .column{
-	margin-top: 20px;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 20px;
+	margin-top: 30px;
+	margin-left: 15px;
+	margin-right: 15px;
 	position: relative;
-	background-color: white;
+	
+	width: 290px;
+	height: 290px;
+	max-height:290px;
+	max-width:290px;
+	
+	background-position: center center;
+	background-size: 100% auto;
+	
+	overflow: hidden;
+	text-align: center;
+	
+
 }
 
-.column:hover div.overlay{
+h5.description{
+	color: 	#668B8B;
+	border-bottom-style: solid;
+	border-width: 1px;
+
+
+}
+
+span.description{
+	float-right;
 	
 
-	opacity:0.5;
-	background-color: #000;
+	width: 350px;
+	height: 375px;
+	max-height: 375px;
+
+}
+
+.commentsection{
+
+	margin-left: 5px;
 	
-	height: 100%;
+	border-style: none;
+	width: 100%;
+	
+
+}
+
+.overlay{
+	z-index: 10;
+}
+
+a:hover img{
+	background-color: #FFFFFF;
+}
+
+a:hover .over-the-img{
+	background: transparent !important;
 	display: block;
 }
 
+
+a:hover{
+	background-color: #B0E0E6;
+}
+ a:focus .som{
+ 	content: url('https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-128.png');
+    display: block;
+    width: 30px;
+    height: 30px;
+ }
+
+.columnofpic{
+	z-index: -1;
+}
+
+.likes img{
+	max-width: 30px;
+	max-height: 30px;
+	height: 100%;
+
+}
+
+.comments img{
+	max-width: 30px;
+	max-height: 30px;
+	height: 100%;
+
+}
+
+.modal-img{
+	position: relative;
+	
+	width: 100%;
+	height: 100%;
+	
+
+	background-position: center center;
+	
+	
+	overflow: hidden;
+	text-align: center;
+}
+
+.column img{
+	width:100%;
+	height:100%;
+	z-index: -1;
+}
+
+
+.img-outside:hover .column{
+	
+	background-color: black;
+	
+	
+	display: block;
+}
+
+.column:hover img{
+	opacity: 0.7;
+}
+
+.r-header{
+	padding-top: 100px;
+	
+}
 
 .column label{
 	display:none;
@@ -33,6 +141,9 @@
 	color:#FFFFFF; 
 }
 
+.overlay{
+	z-index: -1;
+}
 
 .column:hover label.comments{
 	top:45%;
@@ -61,6 +172,11 @@ img-responsive{
 img{
 	object-fit: cover;
 }
+
+.img-outside{
+	z-index: -1;
+}
+
 .container-newpic{
 	padding-left: 200px;
 	padding-top: 70px;
@@ -77,4 +193,12 @@ img{
 .form-group-one{
 	padding-top: 40px;
 	
+}
+
+.instagrampicprofile{
+	background-image: url(//instagramstatic-a.akamaihd.net/h1/sprites/whiteout/829d8b.png);
+    background-repeat: no-repeat;
+    background-position: -674px -168px;
+    height: 24px;
+    width: 24px;
 }

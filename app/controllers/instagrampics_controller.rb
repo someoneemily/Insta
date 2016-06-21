@@ -4,19 +4,49 @@ class InstagrampicsController < ApplicationController
   # GET /instagrampics
   # GET /instagrampics.json
   def index
+
     @instagrampics = Instagrampic.all
     @instagrampic = Instagrampic.new
     @userprofile=Userprofile.new
     @userprofiles=Userprofile.all
+   
+    @user=current_user
+     @users=User.all
+    @pictures=Picture.all
+
+    
   end
+
+
+ def updatelikes
+  @picture = Picture.find(params[:picture])
+  @picture.likes=@picture.likes.to_i+1
+  @picture.save
+  redirect_to "/instagrampics/index/##{@picture.id}"
+
+end
+
+def updatecomments
+  @user=current_user
+  @picture=Picture.find(params[:picture])
+  @picture.comments=@picture.comments.to_s+"\n| "+@user.name.to_s+": "+params[:commentadd].to_s+"\n"+"1"
+  @picture.save
+  redirect_to "/instagrampics/index/##{@picture.id}"
+end
+
 def addfollower
   @userprofiles.first.update_attribute(:followers, @userprofiles.first.followers.to_i+1)
 end
-helper_method :addfollower
+
+helper_method :addfollower, :updatelikes, :updatecomments
+
+
+
   # GET /instagrampics/1
   # GET /instagrampics/1.json
   def show
   end
+
 
   # GET /instagrampics/new
   def new
@@ -24,6 +54,8 @@ helper_method :addfollower
     @instagrampics = Instagrampic.all
       @userprofile=Userprofile.new
     @userprofiles=Userprofile.all
+   
+    @users=User.all 
   end
   def newpage
     @instagrampic = Instagrampic.newpage
@@ -77,6 +109,9 @@ helper_method :addfollower
   end
 
   private
+
+    
+
     # Use callbacks to share common setup or constraints between actions.
     def set_instagrampic
       @instagrampic = Instagrampic.find(params[:id])

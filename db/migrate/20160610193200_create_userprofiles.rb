@@ -6,8 +6,10 @@ class CreateUserprofiles < ActiveRecord::Migration
       t.string :followers
       t.string :following
       t.string :profilepic
-
+      
       t.timestamps null: false
+
     end
   end
 end
+

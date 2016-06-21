@@ -2,36 +2,58 @@
 
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <link href="/Users/echen/Downloads/lightbox2-master/dist/css/lightbox.css" rel="stylesheet">
+
   <title>InstagramME</title>
 </head>
 <body style="background-color:#F7F7F7">
   <table class="table table-hover">
     
     <tr class = "row"style="background-color:#FFFFFF">
-      <td class="col-md-1">
+      <td class="col-sm1">
       </td>
 
-      <td class="col-md-1">
+      <td class="col-sm-1">
         <div class="container-pic">
         <img src="http://www.clker.com/cliparts/S/B/l/d/h/t/frameless-camera.svg" height="50px" width="50px" class="pull-right">
         </div>
       </td>
-      <td class="col-md-3">  <p class="text-lg-left"><h3>InstagramME</h3></p> 
+      <td class="col-sm-3">  <p class="text-lg-left"><h3>InstagramME</h3></p> 
       </td>
-      <td class="col-md-4">
-        <div class="col-md-6">
-          <div class "form-group">
-            <label for="SearchBox"></label>
-            <input type = "Search" class = "form-control" id = "Searchbox" placeholder= "Search">
+      <td class="col-sm-4">
+     
+          <div class "form-group" style="margin-top:20px; width:80%">
+            
+          <div class="input-group changethisone">
+            <input type = "text" class = "form-control" id = "Searchbox" placeholder= "Search" style="background-color: #FFF;  border-right-style:none" />
+           
+            <span class="input-group-addon" style="background-color:#FFF">
+              
+              <i class="glyphicon glyphicon-search"  style="float:right" onclick="searchtheplace"></i>
+              <button 
+            </span>
           </div>
-        </div>
+          </div>
+          
       </td>
-      
-      <td class="col-md-3">
+     
+      <td class="col-sm-3">
         <div class="container-header">
-        <button type="button" class="btn btn-primary">Get the web</button>
-        <a href = '/instagrampics/new'><img src="https://cdn4.iconfinder.com/data/icons/maps-and-navigation-solid-icons-vol-1/72/09-512.png" width="35"class ="img-rounded"></a>
-         
+
+
+        
+
+        <%if current_user%>
+        <a href='/instagrampics/index' ><img src="https://cdn1.iconfinder.com/data/icons/smashicons-the-essentials-outline/55/295_-_Profile_Outline-128.png" width="32" height="32"></a>
+        <a href = '/pictures/new'><img src="https://cdn4.iconfinder.com/data/icons/maps-and-navigation-solid-icons-vol-1/72/09-512.png" width="35"class ="img-rounded"></a>
+
+        <%else%>
+        <a href='/signup'><img src="https://cdn0.iconfinder.com/data/icons/thin-users-people/57/thin-198_user_create_add_new-512.png" width= "30" height="30"></a>
+        <button type="button" class="btn btn-info">Get the web</button>
+        <a href='/login'><button type="button" class="btn btn-link">Log in</button></a>
+       <%end%>
           </div>
        
        <!--  <form action="localhost:3000/instagrampics/new">
@@ -40,20 +62,34 @@
       </td>
       
     </tr>
-  
+ 
     <tr class = "row" >
-      
-        <td class="col-md-1">
+     
+        <td class="col-sm-1 r-header">
         </td>
-        <td class="col-md-1">
+        <td class="col-sm-1 r-header">
         </td>
-        <td class="col-md-3"><img src="<%=@userprofiles.first.profilepic%>" class = "img-circle" height = "175px" width = "175px">
-        </td>
-        <td class="col-md-4">
-          <h1><%=@userprofiles.first.name%></h1>
+        <%if current_user%>
+          <td class="col-sm-3 r-header"><img src="<%=@user.pic_url%>" class = "img-circle" height = "175px" width = "175px">
+          </td>
+        <%else%>
+          <td class="col-sm-3 r-header"><img src="https://lh3.googleusercontent.com/aYbdIM1abwyVSUZLDKoE0CDZGRhlkpsaPOg9tNnBktUQYsXflwknnOn2Ge1Yr7rImGk=w300" class = "img-circle" height = "175px" width = "175px">
+        <%end%>
+
+        <td class="col-sm-4 r-header">
+          <%if current_user%>
+          <h1><%=@user.name%></h1>
+          <%else%>
+          <h1>Your Username Here :P</h1>
+          <%end%>
           <%va = 0%>
 <!-- 
           <%=link_to 'button', :controller => :instagrampics, :action => :addfollower%> -->
+          <% if current_user%>
+            <a href='/users/<%=@user.id%>/edit'><button type="button" class="btn btn-default">Edit Profile</button></a>
+            <a href='/logout'><img src="https://cdn1.iconfinder.com/data/icons/navigation-icon/128/log_out-128.png" width="31px" height="31px" ></a></a>
+          <%else%>
+         
           <button type="button" class="btn btn-success" onClick = "<%addfollower%> changeCount()">FOLLOW</button>
           <script type="text/javascript">
             function changeCount(){
@@ -61,20 +97,46 @@
               window.location.reload()
             }
           </script>
-          <p> <strong>#<%=@userprofiles.first.name%></strong>
-            <%=@userprofiles.first.description%>
-          </p>
-          <strong><%=@instagrampics.size%></strong> posts 
+          <%end%>
+          <%if current_user%>
+            <p> <strong>#<%=@user.name%></strong>
+              <%=@user.description%>
+            </p>
+          <%else%>
+            <p> <strong>#<%=@userprofiles.first.name%></strong>
+              <%=@userprofiles.first.description%>
+            </p>
+          <%end%>
 
-          <strong><%=@userprofiles.first.followers%> </strong>followers                 <strong>1000</strong> following 
+          <%couner=0%>
+          <%@pictures.each do |x|%>
+            <%if current_user&&@user.id==x.user_id%>
+              <%couner+=1%>
+            <%end%>
+          <%end%>
+          
+
+
+          <%if current_user%>
+            <strong><%=couner%></strong>
+          <%else%>
+            <strong><%=@pictures.size%></strong>  
+          <%end%>posts
+
+          <%if current_user%>
+            <strong><%=@user.followers.to_i%> </strong> followers  <strong><%=@user.following.to_i%></strong> following 
+          <%else%>
+          <strong><%=@userprofiles.first.followers%> </strong><%end%>               
+
+          
 
          
         </td>
         
-        <td class="col-md-3">
+        <td class="col-sm-3 r-header">
           
         </td>
-      
+     
     </tr>
 
     
@@ -86,40 +148,112 @@
     
   <table>
     <tr >
-      <%  counter=0 %>
+      <% counter=0 %>
+<% picstr="http://cdn.shopify.com/s/files/1/0381/4661/products/heart_grande.png?v=1443580064"%>
+    <% @pictures.reverse.each do |pic| %>
 
-    <% @instagrampics.reverse.each do |picture| %>
-      
-       
-        <%counter=counter+=1%>
-       
-       <td class"col-md-4">
-        <div class="column">
-          <div class="overlay">
-          <a href="/instagrampics/<%=picture.id%>">
-          <img src="<%= picture.photo_url%>" class="img-responsive" height ="350px" width="350px" > </a> 
-          <label class="likes" >likes</label>
-          <label class="comments" >comments</label>
-          <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), picture, method: :delete, data: { confirm: 'Are you sure?' } %></label>
-          </div>
-       <!--  <%= link_to 'Show', picture %> 
-        <%= link_to 'Edit', edit_instagrampic_path(picture) %> -->
-        
-      </div> 
-      </td>
+        <%if current_user%>
+          <%if pic.user_id==@user.id%>
+            <%counter=counter+=1%>
+            <td class"col-sm-4 columnofpic">
+             <div class="img-outside"> 
+              <div class="column" >
+                <!-- <a href="/instagrampics/<%=pic.id%>"> -->
+                 <a href="#<%=pic.id%>" class = "over-the-img">
+              <img src="<%= pic.profileurl%>" > </a> 
+              <div class="overlay">
+              <label class="likes" ><img src="http://www.partygamecentral.com/icns/heart_icon_white.png" width="30px" height="30px"><%=pic.likes%></label>
+              <label class="comments" ><img src="http://desmeriletisim.com/wp-content/uploads/2016/04/icon-contact-white.png"></label>
+              <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), pic, method: :delete, data: { confirm: 'Are you sure?' } %></label>
+              </div>
+             </div> 
+            </div>
+            <div class="modal-mine" id="<%=pic.id%>"style="display:inline-block">
+              <div class="modal-container"style="display:inline-block">
+               
+              <img src="<%= pic.profileurl%>" class="img-responsive" width="70%">
+                 
+                <h5 class="description">Description: <%=pic.description%></h5>
+                <span width="30%" class="description">
+                 View all comments:
+                   <p><span height="300px"><%=pic.comments.to_s%></span></p>
+                </span>
+
+                <hr>
+              <div style="float:left" style="margin-top: 0pt">
+              
+                  
+                   
+                  <%=link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/5/52/Heart_icon_red_hollow.svg", width: 25, height: 25), {:controller =>'instagrampics', :action =>"updatelikes", :picture => pic.id}
+                   %> 
+            
+              </div>
+            
+              <span class="commentsection">
+                <input type ="text" name="addedcomment" id="commentadd" placeholder="Add a comment..">
+
+                  <div style="float:left" style="margin-top: 0px; margin-left:5px">
+                    <%=link_to image_tag("https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/256/comments.png", width: 25, height: 25), {:controller =>'instagrampics', :action =>"updatecomments", :picture => pic.id, :commentadd=>params[:addedcomment]}%> 
+                   
+                  </div>
+              </span>
+          
+
+             <p>  
+              <a href="#modal-close">Close</a>
+            </p>
+              </div>
+            </div>
+            </td>
+          <%end%>
+           
+
+        <%else%>
+          <%counter=counter+=1%>
+          <td class"col-sm-4 columnofpic">
+             <div class="img-outside"> 
+              <div class="column" >
+                <!-- <a href="/instagrampics/<%=pic.id%>"> -->
+                 <a href="#<%=pic.id%>" class="over-the-img">
+              <img src="<%= pic.profileurl%>"></a> 
+              <div class="overlay">
+              <label class="likes" ><img src="http://www.partygamecentral.com/icns/heart_icon_white.png" width="30px" height="30px"><%=pic.likes%></label>
+              <label class="comments" ><img src="http://desmeriletisim.com/wp-content/uploads/2016/04/icon-contact-white.png"><%=pic.comments%></label>
+              <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), pic, method: :delete, data: { confirm: 'Are you sure?' } %></label>
+              </div>
+             </div> 
+            </div>
+            <div class="modal-mine" id="<%=pic.id%>" style="display:inline-block">
+              <div class="modal-container" style="display:inline-block">
+              <p><img src="<%= pic.profileurl%>" class="img-responsive" width="70%" ></p>
+              <p class="description">
+                  <h5 class="description">Description: <%=pic.description%></h5>
+                </p>
+                </p><textarea width="30%">how DOES THIS WORK?!</textarea></p>
+              <%=pic.likes%>  likes
+              <a href="#modal-close">Close</a>
+              </div>
+            </div>
+          </td>
+        <%end%>
+     
       
        
         <% if counter==3%>
           
           <%counter=0%>
           <tr >
-           
+           <!--  <%= link_to 'Show', pic %> 
+        <%= link_to 'Edit', edit_instagrampic_path(pic) %> -->
         <%end%>
+
       <% end %>
   </tr>
   </table>
   
 </div>
+
+  
 </body>
 </html>
 

@@ -1,12 +1,26 @@
 Rails.application.routes.draw do
 
+  resources :pictures
+  resources :pictures
+  resources :pictures
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'updatelikes', to: 'instagrampics#updatelikes'
+  get 'updatecomments', to:'instagrampics#updatecomments'
+
+  get 'userprofiles/inde'=> 'userprofiles#inde'
   
   resources :userprofiles
+
   get 'instagrampics'=>'instagrampics#index'
-  get 'instagrampics/newpage'=> 'instagrampics#newpage'
+  
   get 'instagrampics'=>'instagrampics#addfollower'
   get 'instagrampics/index'=>'instagrampics#index'
   resources :instagrampics
+  root 'instagrampics#index'
   #resources :articles
   
 

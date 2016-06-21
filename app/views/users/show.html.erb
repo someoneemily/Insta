@@ -1,9 +1,6 @@
-<html>
-<head></head>
-<body>
- <table class="table table-hover">
-    
-    <tr class = "row"style="background-color:#FFFFFF">
+<p id="notice"><%= notice %></p>
+<table class="table table-hover">
+ <tr class = "row"style="background-color:#FFFFFF">
       <td class="col-md-1">
       </td>
       <td class="col-md-1">
@@ -38,39 +35,32 @@
       
     </tr>
 </table>
-<div class="container-newpic" >
-	<div class="col-sm-2">
-	<img src="<%=@userprofile.profilepic%>" class="img-circle" width="100" height="100" >
-	</div>
-	<div class="col-sm-10">
-		<p></p>
-		<p></p>
-		<p></p>
-		<label for="inputEmail3" class="control-label" ><h1><%=@userprofile.name%></h1></label>
-	</div>
-</div>
-
 <div class="container-newpic">
-	
-     <div class="form-group-one">
-      <label for="inputEmail3" class="col-sm-2 control-label">Followers</label>
-      <div class="col-sm-10">
-        <label type="followers" class="control-label" ><%=@userprofile.followers%>
-      </div>
-     </div>
-	<div class="form-group-one">
-    	<label for="inputPassword3" class="col-sm-2 control-label">Following</label>
-    	<div class="col-sm-10">
-     	 <label class="control-label"><%=@userprofile.following%></label>
-    	</div>
-  </div>
-<%= render 'form' %>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
 
-<%= link_to 'Show', @userprofile %> |
-<%= link_to 'Back', userprofiles_path %>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
 
+<p>
+  <strong>Pic url:</strong>
+  <%= @user.pic_url %>
+</p>
+
+<p>
+  <strong>Followers:</strong>
+  <%= @user.followers %>
+</p>
+
+<p>
+  <strong>Following:</strong>
+  <%= @user.following %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
 </div>
-
-</body>
-</html>
-

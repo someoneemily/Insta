@@ -11,6 +11,12 @@ class UserprofilesController < ApplicationController
   # GET /userprofiles/1
   # GET /userprofiles/1.json
   def show
+    
+  end
+
+  def inde
+    @userprofiles = Userprofile.all
+    @userprofile = Userprofile.new
   end
 
   # GET /userprofiles/new
@@ -20,6 +26,7 @@ class UserprofilesController < ApplicationController
 
   # GET /userprofiles/1/edit
   def edit
+    @userprofiles = Userprofile.all
   end
 
   # POST /userprofiles
