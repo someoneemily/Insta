@@ -217,6 +217,7 @@
                  <a href="#<%=pic.id%>" class="over-the-img">
               <img src="<%= pic.profileurl%>"></a> 
               <div class="overlay">
+                
               <label class="likes" ><img src="http://www.partygamecentral.com/icns/heart_icon_white.png" width="30px" height="30px"><%=pic.likes%></label>
               <label class="comments" ><img src="http://desmeriletisim.com/wp-content/uploads/2016/04/icon-contact-white.png"><%=pic.comments%></label>
               <label class="remove"><%= link_to image_tag("http://downloadicons.net/sites/default/files/trash-can-symbol-icon-504.png", size:"20x20", :border=>0), pic, method: :delete, data: { confirm: 'Are you sure?' } %></label>
